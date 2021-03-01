@@ -87,6 +87,11 @@
     <Compile Include="SettingsDialog.Designer.cs">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </Compile>
+    <Content Include="About.png" />
+    <Content Include="no-icon.png" />
+    <Content Include="Rank.png" />
+    <Content Include="REcord.png" />
+    <Content Include="Trophy-bronze-icon.png" />
     <EmbeddedResource Include="AboutDlog.resx">
       <DependentUpon>AboutDlog.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +128,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
