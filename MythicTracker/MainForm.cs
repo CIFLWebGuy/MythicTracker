@@ -27,6 +27,7 @@ namespace MythicTracker
 
         private const int WM_HOTKEY = 0x0312;
         private DateTime endTimeUtc;
+        private DateTime sessionStart;
         private List<bool> resultList;
 
         public MainForm()
@@ -45,7 +46,10 @@ namespace MythicTracker
             }
 
             TimeSpan timeLeft = endTimeUtc - DateTime.UtcNow;
+            TimeSpan session = DateTime.Now - sessionStart;
+
             labelClock.Text = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", timeLeft.Days, timeLeft.Hours, timeLeft.Minutes, timeLeft.Seconds);
+            statusLabelClock.Text = String.Format("{0:00}:{1:00}:{2:00}", session.Hours, session.Minutes, session.Seconds);
         }
 
         private void UpdateRemaining()
@@ -434,6 +438,7 @@ namespace MythicTracker
                 sessionData.Season.Loss = 0;
             }
 
+            sessionStart = DateTime.Now;
             DisplayRank();
         }
 
@@ -479,6 +484,8 @@ namespace MythicTracker
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            sessionStart = DateTime.Now;
+
             RegisterHotKey(this.Handle, 0, (uint)ModiferKey.Control, (uint)Keys.Oemplus);
             RegisterHotKey(this.Handle, 1, (uint)(ModiferKey.Control | ModiferKey.Alt), (uint)Keys.Oemplus);
             RegisterHotKey(this.Handle, 2, (uint)ModiferKey.Control, (uint)Keys.OemMinus);
