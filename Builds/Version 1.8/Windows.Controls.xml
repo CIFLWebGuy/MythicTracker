@@ -1,0 +1,883 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Windows.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:Windows.Controls.CommandButton">
+            <summary>
+            Base class for implementing a Windows command button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandButton.BCN_FIRST">
+            <summary>
+            Standard notification for extended styles.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandButton.BCM_FIRST">
+            <summary>
+            Standard message for extended styles.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandButton.BM_SETSTYLE">
+            <summary>
+            Message to set the button's style.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandButton.BCM_SETSHIELD">
+            <summary>
+            Message to set the sheild icon.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandButton.BCM_SETIMAGELIST">
+            <summary>
+            Message to set the button's image list.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandButton.BS_ICON">
+            <summary>
+            Style to display the button image as an icon.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandButton.BS_BITMAP">
+            <summary>
+            Style to display the buttion image as a bitmap.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.CommandButton.ShowShieldIcon">
+            <summary>
+            Gets/sets a flag that determines if the security icon should be shown.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.CommandLink">
+            <summary>
+            Implements a command link button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandLink.BCM_SETNOTE">
+            <summary>
+            Message to set the command link's note text.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandLink.BS_COMMANDLINK">
+            <summary>
+            Style to display the button as a command link.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.CommandLink.BS_DEFCOMMANDLINK">
+            <summary>
+            Style to display the button as the default command link.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.CommandLink.#ctor">
+            <summary>
+            Initalizes a command link.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.CommandLink.DefaultSize">
+            <summary>
+            Gets the default size of the command link.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.CommandLink.CreateParams">
+            <summary>
+            Adds the necessary window style to the control.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.CommandLink.Description">
+            <summary>
+            Gets/sets the description text.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.EditControl">
+            <summary>
+            Implements a standard edit control that contains a cue banner and balloon tips.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditControl.ECM_FIRST">
+            <summary>
+            Standard message for extended massages.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditControl.EM_SETCUEBANNER">
+            <summary>
+            Message to set the cue banner text.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditControl.EM_SHOWBALLOONTIP">
+            <summary>
+            Message to show the balloon tip.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditControl.EM_HIDEBALLOONTIP">
+            <summary>
+            Message to hide the balloon tip.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.EditControl.#ctor">
+            <summary>
+            Initalizes an instance of the EditControl class.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.EditControl.ShowCueOnFocus">
+            <summary>
+            Gets/sets a flag the determines if the cue banner is displayed while the control has the focus.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.EditControl.CueBanner">
+            <summary>
+            Gets/sets the cue banner text in the edit control.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.EditControl.ShowBalloonTip(System.String,System.String,Windows.Controls.EditBallonTipIcons)">
+            <summary>
+            Shows a balloon tip on the edit control.
+            </summary>
+            <param name="title">The title of ballon tip.</param>
+            <param name="message">The message displayed in the balloon.</param>
+            <param name="icon">The icon to show in the balloon.</param>
+        </member>
+        <member name="M:Windows.Controls.EditControl.HideBalloonTip">
+            <summary>
+            Hides any balloon tip associated with an edit control.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.ListView">
+            <summary>
+            Implents an Explorer-styled ListView control.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.ListView.OnHandleCreated(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.HandleCreated"/> event.
+            </summary>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="T:Windows.Controls.LoadResourceFlags">
+            <summary>
+            Specifies flags for the LoadResource and LoadImage functions.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_CREATEDIBSECTION">
+            <summary>
+            Causes the function to return a DIB section bitmap rather than a compatible bitmap.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_DEFAULTCOLOR">
+            <summary>
+            The default flag; it does nothing.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_DEFAULTSIZE">
+            <summary>
+            Uses the width or height specified by the system metric values for cursors or icons, if the cxDesired or cyDesired values are set to zero. 
+            </summary>
+            <remarks>
+            If this flag is not specified and cxDesired and cyDesired are set to zero, the function uses the actual resource size. 
+            If the resource contains multiple images, the function uses the size of the first image.
+            </remarks>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_LOADFROMFILE">
+            <summary>
+            Loads the stand-alone image from the file specified by lpszName (icon, cursor, or bitmap file).
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_LOADMAP3DCOLORS">
+            <summary>
+            <para>Searches the color table for the image and replaces the following shades of gray with the corresponding 3-D color.</para>
+            <list type="bullet">
+            <item>
+            <description>Dk Gray, RGB(128,128,128) with COLOR_3DSHADOW</description>
+            </item>
+            <item>
+            <description>Gray, RGB(192,192,192) with COLOR_3DFACE</description>
+            </item>
+            <item>
+            <description>Lt Gray, RGB(223,223,223) with COLOR_3DLIGHT</description>
+            </item>
+            </list>
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_LOADTRANSPARENT">
+            <summary>
+            Retrieves the color value of the first pixel in the image and replaces the corresponding entry in the color table with the default window color (COLOR_WINDOW). 
+            </summary>
+            <remarks>
+            All pixels in the image that use that entry become the default window color. 
+            This value applies only to images that have corresponding color tables.
+            </remarks>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_MONOCHROME">
+            <summary>
+            Loads the image in black and white.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_SHARED">
+            <summary>
+            Shares the image handle if the image is loaded multiple times.
+            </summary>
+            <remarks>
+            <para>If LR_SHARED is not set, a second call for the same resource will load the image again and return a different handle.</para>
+            <para>When you use this flag, the system will destroy the resource when it is no longer needed.</para>
+            <para>Do not use LR_SHARED for images that have non-standard sizes, that may change after loading, or that are loaded from a file.</para>
+            <para>This function finds the first image in the cache with the requested resource name, regardless of the size requested.</para>
+            </remarks>
+        </member>
+        <member name="F:Windows.Controls.LoadResourceFlags.LR_VGACOLOR">
+            <summary>
+            Uses true VGA colors.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.ProgressBar">
+            <summary>
+            Implements a Win32 progress bar.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.PBST_NORMAL">
+            <summary>
+            Indicates that the progress bar is in the normal state.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.PBST_ERROR">
+            <summary>
+            Indicates the progress bar is in the error state.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.PBST_PAUSED">
+            <summary>
+            Indicates the progress bars is in the paused state.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.PBM_SETSATE">
+            <summary>
+            Message used to set the state of the progress bar.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.PBM_GETSATE">
+            <summary>
+            Message used to get the state of the progress bar.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.ProgressBar.States">
+            <summary>
+            Indicates the state of the progress bar.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.States.Normal">
+            <summary>
+            Normal state.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.States.Error">
+            <summary>
+            Error state.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.ProgressBar.States.Paused">
+            <summary>
+            Paused state.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.ProgressBar.State">
+            <summary>
+            Gets/sets the visual state of the progress bar.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.Properties.Resources.Search_16x">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.SearchBox">
+            <summary>
+            Implements an edit control with a search button.
+            </summary>
+        </member>
+        <member name="E:Windows.Controls.SearchBox.SearchClicked">
+            <summary>
+            Occurs when the search button is clicked.
+            </summary>
+        </member>
+        <member name="E:Windows.Controls.SearchBox.TextChanged">
+            <summary>
+            Occurs when the text changes.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.SearchBox.#ctor">
+            <summary>
+            Initalizes a SearchBox control.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.SelectedText">
+            <summary>
+            Gets/sets the text selected in the text box.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.SelectionStart">
+            <summary>
+            Gets or sets the starting point of text selected in the text box.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.SelectionLength">
+            <summary>
+            Gets or sets the number of characters selected in the text box.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.TextAlign">
+            <summary>
+            Gets or sets how text is aligned in a System.Windows.Forms.TextBox control.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.TextLength">
+            <summary>
+            Gets the length of text in the control.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.AutoCompleteSource">
+            <summary>
+            Gets or sets a value specifying the source of complete strings used for automatic completion.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.AutoCompleteCustomSource">
+            <summary>
+            Gets or sets a custom <see cref="T:System.Collections.Specialized.StringCollection">StringCollection</see> to use when the <see cref="P:Windows.Controls.SearchBox.AutoCompleteSource">AutoCompleteSource</see> property is set to <c>CustomSource</c>.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.AutoCompleteMode">
+            <summary>
+            Gets or sets an option that controls how automatic completion works for the <see cref="T:Windows.Controls.SearchBox">SearchBox</see>.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.CueBanner">
+            <summary>
+            Gets/sets the cue banner forthe edit control.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.DefaultSize">
+            <summary>
+            Gets the default size of the control.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SearchBox.Text">
+            <summary>
+            Gets/sets the text in the text box.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.SearchBox.OnSearchClicked">
+            <summary>
+            Raises the SearchClicked event.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SearchBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.SearchBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Windows.Controls.SearchBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.SplitButton">
+            <summary>
+            Implements a Windows command button with a drop-down menu.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BCM_SETDROPDOWNSTATE">
+            <summary>
+            Message to set the drop-down state.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BS_SPLITBUTTON">
+            <summary>
+            Window style to display the button as a split button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BS_DEFSPLITBUTTON">
+            <summary>
+            Window style to display the button as a default split-button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BST_DROPDOWNPUSHED">
+            <summary>
+            Indicates the drop-down has been pressed.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BCSIF_GLYPH">
+            <summary>
+            Indicates the image list handle is valid. 
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BCSIF_IMAGE">
+            <summary>
+            Indicates the image list handle is valid. Used when uSplitStyle is set to <code>BCSS_IMAGE</code>.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BCSIF_STYLE">
+            <summary>
+            Indicates the style structure is valid.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.SplitButton.BCSIF_SIZE">
+            <summary>
+            Indicates the size structure is valid.
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.SplitButton.SplitMenu">
+            <summary>
+            Gets/sets the context menu for the split button.
+            </summary>
+        </member>
+        <member name="E:Windows.Controls.SplitButton.DropDownClick">
+            <summary>
+            Occurs when the drop-down button is clicked.
+            </summary>
+        </member>
+        <member name="E:Windows.Controls.SplitButton.DropDownOpening">
+            <summary>
+            Occurs when the drop-down menu is about to be displayed.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.SplitButton.#ctor">
+            <summary>
+            Initalizes a new instance of the SplitButton class.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.SplitButton.OnSplitClick(Windows.Controls.DropDownMenuEventArgs)">
+            <summary>
+            Raises the SplitClick event.
+            </summary>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="P:Windows.Controls.SplitButton.CreateParams">
+            <summary>
+            Applies the button styles to the button.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.SplitButton.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            The callback provided to Windows to recieve window messages.
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="T:Windows.Controls.DropDownMenuEventArgs">
+            <summary>
+            Provides data for drop-down menus.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.DropDownMenuEventArgs.#ctor">
+            <summary>
+            Initalizes a DropDownMenuEventArgs object.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.DropDownMenuEventArgs.#ctor(System.Drawing.Rectangle)">
+            <summary>
+            Initalizes a DropDownMenuEventArgs object with the specified draw area.
+            </summary>
+            <param name="drawArea">The drop-down menu area.</param>
+        </member>
+        <member name="P:Windows.Controls.DropDownMenuEventArgs.CancelDropdown">
+            <summary>
+            Determines if the drop-down menu should be opened. 
+            </summary>
+        </member>
+        <member name="P:Windows.Controls.DropDownMenuEventArgs.DrawArea">
+            <summary>
+            Represents the bounding box of the clicked button.
+            </summary>
+            <remarks>
+            A menu should be opened, with top-left coordinates in the left-bottom
+            point of the rectangle and with width equal (or greater) than the width
+            of the rectangle.
+            </remarks>
+        </member>
+        <member name="T:Windows.Controls.TaskDialog">
+            <summary>
+            Implements a Windows Task Dialog
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.TaskDialog.TaskDlog(System.IntPtr,System.IntPtr,System.String,System.String,System.String,System.Int32,System.UInt16,System.Int32@)">
+            <summary>
+            Creates and operates a task dialog box.
+            </summary>
+            <param name="hWnd">The handle of owning window.</param>
+            <param name="hInstance">The handle of the instance containing the icon to display.</param>
+            <param name="title">The title of the task dialog.</param>
+            <param name="instruction">The main instruction text.</param>
+            <param name="content">The additional text that appears below the main instruction.</param>
+            <param name="buttons">The butons to display in the task dialog.</param>
+            <param name="icon">The id of icon to display.</param>
+            <param name="buttonSelected">The id of the button pressed.</param>
+            <returns>The result of the call.</returns>
+        </member>
+        <member name="M:Windows.Controls.TaskDialog.TaskDlog(System.IntPtr,System.IntPtr,System.String,System.String,System.String,System.Int32,System.String,System.Int32@)">
+            <summary>
+            Creates and operates a task dialog box.
+            </summary>
+            <param name="hWnd">The handle of owning window.</param>
+            <param name="hInstance">The handle of the instance containing the icon to display.</param>
+            <param name="title">The title of the task dialog.</param>
+            <param name="instruction">The main instruction text.</param>
+            <param name="content">The additional text that appears below the main instruction.</param>
+            <param name="buttons">The butons to display in the task dialog.</param>
+            <param name="icon">The name of icon to display.</param>
+            <param name="buttonSelected">The id of the button pressed.</param>
+            <returns>The result of the call.</returns>
+        </member>
+        <member name="M:Windows.Controls.TaskDialog.ShowMessage(System.IntPtr,System.String,System.String,System.String,Windows.Controls.TaskDialogButtons,Windows.Controls.TaskDialogIcons)">
+            <summary>
+            Display a standard message box.
+            </summary>
+            <param name="handle">The handle of the owning window.</param>
+            <param name="title">The title of the dialog box.</param>
+            <param name="instruction">The main instruction text.</param>
+            <param name="content">Text content text displayed uner the main instruction.</param>
+            <param name="buttons">The buttons to display in the dialog.</param>
+            <param name="icon"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Windows.Controls.TreeView">
+            <summary>
+            Implements an Explorer-styled TreeView
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.TreeView.OnHandleCreated(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.HandleCreated"/> event.
+            </summary>
+            <param name="e">The event arguments.</param> 
+        </member>
+        <member name="T:Windows.Controls.EditBallonTipIcons">
+            <summary>
+            Defines icons used in balloon tips.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditBallonTipIcons.None">
+            <summary>
+            No icon displayed.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditBallonTipIcons.Info">
+            <summary>
+            Information icon. 
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditBallonTipIcons.Warning">
+            <summary>
+            Warning icon.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.EditBallonTipIcons.Error">
+            <summary>
+            Error icon.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.EDITBALLOONTIP">
+            <summary>
+            Implements a structure that contans the balloon data.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.TaskDialogButtons">
+            <summary>
+            Defines the flags that determine which buttons to show.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogButtons.None">
+            <summary>
+            Indicates no buttons were pressed.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogButtons.Ok">
+            <summary>
+            The task dialog contains the push button: OK.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogButtons.Yes">
+            <summary>
+            The task dialog contains the push button: Yes.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogButtons.No">
+            <summary>
+            The task dialog contains the push button: No.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogButtons.Cancel">
+            <summary>
+            The task dialog contains the push button: Cancel. 
+            </summary>
+            <remarks>This button must be specified for the dialog box to respond to typical cancel actions (Alt-F4 and Escape).</remarks>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogButtons.Retry">
+            <summary>
+            The task dialog contains the push button: Retry.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogButtons.Close">
+            <summary>
+            The task dialog contains the push button: Close.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.TaskDialogIcons">
+            <summary>
+            Defines the standard icons available for a TaskDialog.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogIcons.Warning">
+            <summary>
+            Warning icon.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogIcons.Error">
+            <summary>
+            Error icon.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogIcons.Information">
+            <summary>
+            Information icon.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogIcons.Shield">
+            <summary>
+            Shield icon.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.TaskDialogResults">
+            <summary>
+            Defines the results of the task dialog.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Ok">
+            <summary>
+            User clicked the OK button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Cancel">
+            <summary>
+            User clicked the Cancel button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Abort">
+            <summary>
+            User clicked the Abort button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Retry">
+            <summary>
+            User clicked the Retry button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Ignore">
+            <summary>
+            User clicked the Ignore button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Yes">
+            <summary>
+            User clicked the Yes button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.No">
+            <summary>
+            User clicked the No button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Close">
+            <summary>
+            User clicked the Close button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Help">
+            <summary>
+            User clicked the Help button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.TryAgain">
+            <summary>
+            User clicked the Try Again button.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.TaskDialogResults.Continue">
+            <summary>
+            User clicked the Continue button.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.WinApi">
+            <summary>
+            Provides methods to unmanaged calls to the Win32 API.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.WinApi.WM_USER">
+            <summary>
+            Defines the start of the user-message area.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.WinApi.UISymbols">
+            <summary>
+            Contains members that map to the glyphs in the Segoe UI Symbol font.
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.WinApi.UISymbols.Close">
+            <summary>
+            Close button
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.WinApi.UISymbols.CloseSmall">
+            <summary>
+            Small close button
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.WinApi.UISymbols.DropDown">
+            <summary>
+            Combo drop-down button
+            </summary>
+        </member>
+        <member name="F:Windows.Controls.WinApi.UISymbols.MenuButton">
+            <summary>
+            Menu button arrow
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.WinApi.OemImages">
+            <summary>
+            Represents the OEM images that are built-in to Windows.
+            </summary>
+        </member>
+        <member name="T:Windows.Controls.WinApi.OemIcons">
+            <summary>
+            Represents the OEM icons that are built-in to Windows.
+            </summary>
+        </member>
+        <member name="M:Windows.Controls.WinApi.MakeDragList(System.IntPtr)">
+            <summary>
+            Changes the specified single-selection list box to a drag list box.
+            </summary>
+            <param name="handle">The handle o the list box.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            Sends a message to the specified window.
+            </summary>
+            <param name="hWnd">The handle of the window recieving the message.</param>
+            <param name="Msg">The message ID.</param>
+            <param name="wParam">Message data.</param>
+            <param name="lParam">Addional message data.</param>
+            <returns>The result of the message.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.Text.StringBuilder)">
+            <summary>
+            Sends a message to the specified window.
+            </summary>
+            <param name="hWnd">The handle of the window recieving the message.</param>
+            <param name="Msg">The message ID.</param>
+            <param name="wParam">Message data.</param>
+            <param name="lParam">Addional message data.</param>
+            <returns>The result of the message.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.SendMessage(System.IntPtr,System.Int32,System.IntPtr,System.String)">
+            <summary>
+            Sends a message to the specified window.
+            </summary>
+            <param name="hWnd">The handle of the window recieving the message.</param>
+            <param name="Msg">The message ID.</param>
+            <param name="wParam">Message data.</param>
+            <param name="lParam">Addional message data.</param>
+            <returns>The result of the message.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.SendMessage(System.IntPtr,System.Int32,System.Int32,System.String)">
+            <summary>
+            Sends a message to the specified window.
+            </summary>
+            <param name="hWnd">The handle of the window recieving the message.</param>
+            <param name="Msg">The message ID.</param>
+            <param name="wParam">Message data.</param>
+            <param name="lParam">Addional message data.</param>
+            <returns>The result of the message.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.SendMessage(System.IntPtr,System.Int32,System.Int32,System.IntPtr@)">
+            <summary>
+            Sends a message to the specified window.
+            </summary>
+            <param name="hWnd">The handle of the window recieving the message.</param>
+            <param name="Msg">The message ID.</param>
+            <param name="wParam">Message data.</param>
+            <param name="lParam">Addional message data.</param>
+            <returns>The result of the message.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.SendMessage(System.IntPtr,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sends a message to the specified window.
+            </summary>
+            <param name="hWnd">The handle of the window recieving the message.</param>
+            <param name="Msg">The message ID.</param>
+            <param name="wParam">Message data.</param>
+            <param name="lParam">Addional message data.</param>
+            <returns>The result of the message.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.SetWindowTheme(System.IntPtr,System.String,System.String)">
+            <summary>
+            Sets the theme of the sepecified window.
+            </summary>
+            <param name="hWnd">The handle of the window.</param>
+            <param name="pszSubAppName">The name of the application who owns the style.</param>
+            <param name="pszSubIdList">The style to set.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.LoadImage(System.IntPtr,System.String,System.UInt32,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Loads an image.
+            </summary>
+            <param name="hInstance"></param>
+            <param name="lpszName"></param>
+            <param name="uType"></param>
+            <param name="cxDesired"></param>
+            <param name="cyDesired"></param>
+            <param name="fuLoad"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.GetOemImage(Windows.Controls.WinApi.OemImages)">
+            <summary>
+            Gets an OEM image.
+            </summary>
+            <param name="image">The image to retrieve.</param>
+            <returns>Bitmap containing the OemImage.</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.GetOemIcon(Windows.Controls.WinApi.OemIcons)">
+            <summary>
+            Gets an OEM icon.
+            </summary>
+            <param name="icon">The icon to retrieve.</param>
+            <returns>Icon containing the OemIcon</returns>
+        </member>
+        <member name="M:Windows.Controls.WinApi.GetSmallShieldImage">
+            <summary>
+            Retrieves the UAC shield image.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
