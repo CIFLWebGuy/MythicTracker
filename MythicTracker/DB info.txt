@@ -1,0 +1,5 @@
+Mythic Tracker database:
+
+Host: 50.62.209.151:3306 (MySQL)
+login: vbwcadmin // rC8>lP4?hA8<oB3&
+login: mythictracker // tY6<cQ0^tZ0&mM8!
