@@ -91,6 +91,7 @@
     <Content Include="no-icon.png" />
     <Content Include="Rank.png" />
     <Content Include="REcord.png" />
+    <Content Include="records.xml" />
     <Content Include="Trophy-bronze-icon.png" />
     <EmbeddedResource Include="AboutDlog.resx">
       <DependentUpon>AboutDlog.cs</DependentUpon>

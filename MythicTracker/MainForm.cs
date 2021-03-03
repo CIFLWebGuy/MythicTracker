@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace MythicTracker
 {
@@ -29,6 +31,7 @@ namespace MythicTracker
         private DateTime endTimeUtc;
         private DateTime sessionStart;
         private List<bool> resultList;
+        private readonly string dataFile;
 
         public MainForm()
         {
@@ -36,6 +39,13 @@ namespace MythicTracker
 
             sessionData = new SessionData();
             resultList = new List<bool>();
+
+#if DEBUG
+            dataFile = "records.xml";
+#else
+            dataFile = $"{Environment.SpecialFolder.LocalApplicationData}\\MythicTracker\\records.xml";
+#endif
+
         }
 
         private void UpdateClock()
@@ -442,6 +452,77 @@ namespace MythicTracker
             DisplayRank();
         }
 
+        private void SaveData()
+        {
+            XDocument doc = new XDocument();
+            
+            XElement root = new XElement("data");
+            
+            XElement record = new XElement("record");
+            record.SetAttributeValue("win", sessionData.Season.Win);
+            record.SetAttributeValue("loss", sessionData.Season.Loss);
+
+            XElement ladder = new XElement("ladder");
+            ladder.SetAttributeValue("rank", sessionData.Rank);
+            ladder.SetAttributeValue("level", sessionData.Level);
+            ladder.SetAttributeValue("wins", sessionData.RankWins);
+
+            XElement mythic = new XElement("mythic");
+            mythic.SetAttributeValue("win", sessionData.Mythic.Win);
+            mythic.SetAttributeValue("loss", sessionData.Mythic.Loss);
+
+            XElement games = new XElement("games");
+
+            foreach(bool won in resultList)
+            {
+                XElement game = new XElement("game");
+                game.SetAttributeValue("result", won ? "W" : "L");
+
+                games.Add(game);
+            }
+
+            doc.Add(root);
+            root.Add(record);
+            root.Add(ladder);
+            root.Add(mythic);
+            root.Add(games);
+
+            string path = Path.GetDirectoryName(dataFile);
+
+            if (path != "" && !Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            doc.Save(dataFile);
+        }
+
+        public void LoadData()
+        {
+            if (!File.Exists(dataFile))
+                return;
+
+            sessionData = new SessionData();
+
+            XDocument document = XDocument.Load(dataFile);
+            XElement root = document.Element("data");
+            XElement record = root.Element("record");
+            XElement ladder = root.Element("ladder");
+            XElement mythic = root.Element("mythic");
+            XElement games = root.Element("games");
+
+            sessionData.Season.Win = int.Parse(record.Attribute("win").Value);
+            sessionData.Season.Loss = int.Parse(record.Attribute("loss").Value);
+            sessionData.Rank = int.Parse(ladder.Attribute("rank").Value);
+            sessionData.Level = int.Parse(ladder.Attribute("level").Value);
+            sessionData.RankWins = int.Parse(ladder.Attribute("wins").Value);
+            sessionData.Mythic.Win = int.Parse(mythic.Attribute("win").Value);
+            sessionData.Mythic.Loss = int.Parse(mythic.Attribute("loss").Value);
+
+            foreach(XElement e in games.Elements())
+            {
+                resultList.Add(e.Attribute("result").Value == "W");
+            }
+        }
+
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -494,14 +575,7 @@ namespace MythicTracker
             if (Properties.Settings.Default.OutputPath == "")
                 Properties.Settings.Default.OutputPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\MythicTracker";
 
-            sessionData.Rank = Properties.Settings.Default.Rank;
-            sessionData.Level = Properties.Settings.Default.Level;
-            sessionData.RankWins = Properties.Settings.Default.Wins;
-
-            sessionData.Season.Win = Properties.Settings.Default.SeasonWin;
-            sessionData.Season.Loss = Properties.Settings.Default.SeasonLoss;
-            sessionData.Mythic.Win = Properties.Settings.Default.MythicWin;
-            sessionData.Mythic.Loss = Properties.Settings.Default.MythicLoss;
+            LoadData();
 
             GetSeasonEnd();
             DisplayRank();
@@ -510,13 +584,7 @@ namespace MythicTracker
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.Rank = sessionData.Rank;
-            Properties.Settings.Default.Level = sessionData.Level;
-            Properties.Settings.Default.Wins = sessionData.RankWins;
-            Properties.Settings.Default.SeasonWin = sessionData.Season.Win;
-            Properties.Settings.Default.SeasonLoss = sessionData.Season.Loss;
-            Properties.Settings.Default.MythicWin = sessionData.Mythic.Win;
-            Properties.Settings.Default.MythicLoss = sessionData.Mythic.Loss;
+            SaveData();
 
             Properties.Settings.Default.Save();
 

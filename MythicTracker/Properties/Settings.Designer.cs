@@ -25,66 +25,6 @@ namespace MythicTracker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Rank {
-            get {
-                return ((int)(this["Rank"]));
-            }
-            set {
-                this["Rank"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Level {
-            get {
-                return ((int)(this["Level"]));
-            }
-            set {
-                this["Level"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Wins {
-            get {
-                return ((int)(this["Wins"]));
-            }
-            set {
-                this["Wins"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int SeasonWin {
-            get {
-                return ((int)(this["SeasonWin"]));
-            }
-            set {
-                this["SeasonWin"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int SeasonLoss {
-            get {
-                return ((int)(this["SeasonLoss"]));
-            }
-            set {
-                this["SeasonLoss"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string OutputPath {
             get {
@@ -92,30 +32,6 @@ namespace MythicTracker.Properties {
             }
             set {
                 this["OutputPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int MythicWin {
-            get {
-                return ((int)(this["MythicWin"]));
-            }
-            set {
-                this["MythicWin"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int MythicLoss {
-            get {
-                return ((int)(this["MythicLoss"]));
-            }
-            set {
-                this["MythicLoss"] = value;
             }
         }
     }

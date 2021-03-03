@@ -77,6 +77,7 @@
             this.statusLabelSessionGames = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSessionPct = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelLast10 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelClock = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSeasonGames = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSeasonPct = new System.Windows.Forms.ToolStripStatusLabel();
@@ -86,7 +87,6 @@
             this.statusLabelMythicPct = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelFileError = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSave = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusLabelClock = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuLoss.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -392,14 +392,14 @@
             // 
             this.resetSessionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.resetSessionToolStripMenuItem.Name = "resetSessionToolStripMenuItem";
-            this.resetSessionToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.resetSessionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resetSessionToolStripMenuItem.Text = "Reset session";
             this.resetSessionToolStripMenuItem.Click += new System.EventHandler(this.resetSessionToolStripMenuItem_Click);
             // 
             // resetSeasonToolStripMenuItem
             // 
             this.resetSeasonToolStripMenuItem.Name = "resetSeasonToolStripMenuItem";
-            this.resetSeasonToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.resetSeasonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resetSeasonToolStripMenuItem.Text = "Reset season";
             this.resetSeasonToolStripMenuItem.Click += new System.EventHandler(this.resetSeasonToolStripMenuItem_Click);
             // 
@@ -501,11 +501,11 @@
             this.toolStripStatusLabel1,
             this.statusLabelSessionGames,
             this.statusLabelSessionPct,
-            this.statusLabelLast10,
             this.statusLabelClock,
             this.toolStripStatusLabel3,
             this.statusLabelSeasonGames,
             this.statusLabelSeasonPct,
+            this.statusLabelLast10,
             this.statusLabelMythic,
             this.statusLabelMythicRecord,
             this.statusLabelMythicGames,
@@ -544,6 +544,15 @@
             this.statusLabelLast10.Name = "statusLabelLast10";
             this.statusLabelLast10.Size = new System.Drawing.Size(66, 19);
             this.statusLabelLast10.Text = "Last 10: 0-0";
+            // 
+            // statusLabelClock
+            // 
+            this.statusLabelClock.Image = ((System.Drawing.Image)(resources.GetObject("statusLabelClock.Image")));
+            this.statusLabelClock.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.statusLabelClock.Name = "statusLabelClock";
+            this.statusLabelClock.Size = new System.Drawing.Size(65, 19);
+            this.statusLabelClock.Text = "00:00:00";
+            this.statusLabelClock.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripStatusLabel3
             // 
@@ -601,7 +610,7 @@
             this.statusLabelFileError.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelFileError.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.statusLabelFileError.Name = "statusLabelFileError";
-            this.statusLabelFileError.Size = new System.Drawing.Size(211, 19);
+            this.statusLabelFileError.Size = new System.Drawing.Size(203, 19);
             this.statusLabelFileError.Spring = true;
             this.statusLabelFileError.Text = "Unable to write output files.";
             this.statusLabelFileError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -612,20 +621,11 @@
             this.statusLabelSave.Image = ((System.Drawing.Image)(resources.GetObject("statusLabelSave.Image")));
             this.statusLabelSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Name = "statusLabelSave";
-            this.statusLabelSave.Size = new System.Drawing.Size(423, 19);
+            this.statusLabelSave.Size = new System.Drawing.Size(407, 19);
             this.statusLabelSave.Spring = true;
             this.statusLabelSave.Text = "Saving output files...";
             this.statusLabelSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Visible = false;
-            // 
-            // statusLabelClock
-            // 
-            this.statusLabelClock.Image = ((System.Drawing.Image)(resources.GetObject("statusLabelClock.Image")));
-            this.statusLabelClock.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.statusLabelClock.Name = "statusLabelClock";
-            this.statusLabelClock.Size = new System.Drawing.Size(65, 19);
-            this.statusLabelClock.Text = "00:00:00";
-            this.statusLabelClock.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainForm
             // 

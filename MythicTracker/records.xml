@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <record win="0" loss ="0" />
+  <ladder rank="0" level="0" wins="0" />
+  <mythic win="0" loss="0" />
+  <games>
+    <game result="W" />
+  </games>
+</data> 
