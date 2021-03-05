@@ -68,6 +68,7 @@
     <Compile Include="ModiferKeys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RankData.cs" />
     <Compile Include="RankDlog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +93,9 @@
     <Content Include="Rank.png" />
     <Content Include="REcord.png" />
     <Content Include="records.xml" />
+    <Content Include="SeasonReset.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Trophy-bronze-icon.png" />
     <EmbeddedResource Include="AboutDlog.resx">
       <DependentUpon>AboutDlog.cs</DependentUpon>

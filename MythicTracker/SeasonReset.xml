@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ranks>
+  <rank value="5">
+    <levels>
+      <level value="0">
+        <newRank rank="3" level="4"/>
+      </level>
+    </levels>
+  </rank>
+  <rank value="4">
+    <levels>
+      <level value="3">
+        <newRank rank="2" level="3"/>
+      </level>
+      <level value="2">
+        <newRank rank="2" level="2"/>
+      </level>
+      <level value="1">
+        <newRank rank="2" level="2"/>
+      </level>
+      <level value="0">
+        <newRank rank="2" level="1"/>
+      </level>
+    </levels>
+  </rank>
+  <rank value="3">
+    <levels>
+      <level value="3">
+        <newRank rank="2" level="1"/>
+      </level>
+      <level value="2">
+        <newRank rank="2" level="0"/>
+      </level>
+      <level value="1">
+        <newRank rank="2" level="0"/>
+      </level>
+      <level value="0">
+        <newRank rank="1" level="3"/>
+      </level>
+    </levels>
+  </rank>
+  <rank value="2">
+    <levels>
+      <level value="3">
+        <newRank rank="1" level="2"/>
+      </level>
+      <level value="2">
+        <newRank rank="1" level="1"/>
+      </level>
+      <level value="1">
+        <newRank rank="1" level="0"/>
+      </level>
+      <level value="0">
+        <newRank rank="0" level="3"/>
+      </level>
+    </levels>
+  </rank>
+  <rank value="1">
+    <levels>
+      <level value="3">
+        <newRank rank="0" level="2"/>
+      </level>
+      <level value="2">
+        <newRank rank="0" level="2"/>
+      </level>
+      <level value="1">
+        <newRank rank="0" level="1"/>
+      </level>
+      <level value="0">
+        <newRank rank="0" level="1"/>
+      </level>
+    </levels>
+  </rank>
+  <rank value="0">
+    <levels>
+      <level value="3">
+        <newRank rank="0" level="1"/>
+      </level>
+      <level value="2">
+        <newRank rank="0" level="0"/>
+      </level>
+      <level value="1">
+        <newRank rank="0" level="0"/>
+      </level>
+      <level value="0">
+        <newRank rank="0" level="0"/>
+      </level>
+    </levels>
+  </rank>
+</ranks>

@@ -13,6 +13,22 @@ namespace MythicTracker
     public partial class RankDlog : Form
     {
         /// <summary>
+        /// Gets/sets a flag that determines if the wins field is visible.
+        /// </summary>
+        public bool WinsVisible
+        {
+            get
+            {
+                return upDownWins.Visible;
+            }
+            set
+            {
+                upDownWins.Visible = value;
+                labelWins.Visible = value;
+            }
+        }
+
+        /// <summary>
         /// Gets/sets the rank.
         /// </summary>
         public int Rank

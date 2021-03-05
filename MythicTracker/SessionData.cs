@@ -14,17 +14,7 @@ namespace MythicTracker
         /// <summary>
         /// Gets/sets the rank
         /// </summary>
-        public int Rank { get; set; }
-
-        /// <summary>
-        /// Gets/sets the level
-        /// </summary>
-        public int Level { get; set; }
-
-        /// <summary>
-        /// Gets/sets the number of rank wins
-        /// </summary>
-        public int RankWins { get; set; }
+        public RankData CurrentRank { get; }
 
         /// <summary>
         /// Gets/sets a flag that determines if the last game was won.
@@ -61,6 +51,7 @@ namespace MythicTracker
             Session = new MatchRecord();
             Season = new MatchRecord();
             Mythic = new MatchRecord();
+            CurrentRank = new RankData();
         }
     }
 }

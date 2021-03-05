@@ -32,6 +32,8 @@ namespace MythicTracker
         private DateTime sessionStart;
         private List<bool> resultList;
         private readonly string dataFile;
+        private int seasonGamesStart;
+        private int sessionGamesStart;
 
         public MainForm()
         {
@@ -64,8 +66,13 @@ namespace MythicTracker
 
         private void UpdateRemaining()
         {
-            sessionData.Remaining = 120 - sessionData.Rank * 24 - sessionData.Level * 6 - sessionData.RankWins;
+            sessionData.Remaining = GetGamesRemaining();
             labelGames.Text = $"Games Remaining: {sessionData.Remaining}";
+        }
+
+        private int GetGamesRemaining()
+        {
+            return 120 - sessionData.CurrentRank.Rank * 24 - sessionData.CurrentRank.Level * 6 - sessionData.CurrentRank.Wins;
         }
 
         private void DoLoss(bool loseRank)
@@ -83,71 +90,71 @@ namespace MythicTracker
 
             sessionData.WonLastGame = false;
 
-            if (loseRank && sessionData.Rank < 5 && !(sessionData.Level == 0 && sessionData.RankWins == 0))
+            if (loseRank && sessionData.CurrentRank.Rank < 5 && !(sessionData.CurrentRank.Level == 0 && sessionData.CurrentRank.Wins == 0))
             {
-                sessionData.RankWins--;
+                sessionData.CurrentRank.Wins--;
             }
-            else if (sessionData.Rank == 5)
+            else if (sessionData.CurrentRank.Rank == 5)
             {
                 sessionData.Mythic.Loss++;
             }
             
-            if (sessionData.RankWins < 0)
+            if (sessionData.CurrentRank.Wins < 0)
             {
-                sessionData.RankWins = 5;
-                sessionData.Level--;
+                sessionData.CurrentRank.Wins = 5;
+                sessionData.CurrentRank.Level--;
             }
 
-            if (sessionData.Level < 0)
+            if (sessionData.CurrentRank.Level < 0)
             {
-                sessionData.Rank--;
-                sessionData.Level = 3;
+                sessionData.CurrentRank.Rank--;
+                sessionData.CurrentRank.Level = 3;
             }
 
-            if (sessionData.Rank < 0)
-                sessionData.Rank = 0;
+            if (sessionData.CurrentRank.Rank < 0)
+                sessionData.CurrentRank.Rank = 0;
 
             DisplayRank();
         }
 
         private void UpdateProgress()
         {
-            switch (sessionData.Rank)
+            switch (sessionData.CurrentRank.Rank)
             {
                 case 0:
                     progressBarDiamond.Value = 0;
                     progressBarPlatinum.Value = 0;
                     progressBarGold.Value = 0;
                     progressBarSilver.Value = 0;
-                    progressBarBronze.Value = sessionData.Level * 6 + sessionData.RankWins;
+                    progressBarBronze.Value = sessionData.CurrentRank.Level * 6 + sessionData.CurrentRank.Wins;
                     break;
 
                 case 1:
                     progressBarDiamond.Value = 0;
                     progressBarPlatinum.Value = 0;
                     progressBarGold.Value = 0;
-                    progressBarSilver.Value = sessionData.Level * 6 + sessionData.RankWins;
+                    progressBarSilver.Value = sessionData.CurrentRank.Level * 6 + sessionData.CurrentRank.Wins;
                     progressBarBronze.Value = 24;
                     break;
 
                 case 2:
                     progressBarDiamond.Value = 0;
                     progressBarPlatinum.Value = 0;
-                    progressBarGold.Value = sessionData.Level * 6 + sessionData.RankWins;
+                    progressBarGold.Value = sessionData.CurrentRank.Level * 6 + sessionData.CurrentRank.Wins;
                     progressBarSilver.Value = 24;
                     progressBarBronze.Value = 24;
                     break;
 
                 case 3:
                     progressBarDiamond.Value = 0;
-                    progressBarPlatinum.Value = sessionData.Level * 6 + sessionData.RankWins;
+                    progressBarPlatinum.Value = sessionData.CurrentRank.Level * 6 + sessionData.CurrentRank.Wins;
                     progressBarGold.Value = 24;
                     progressBarSilver.Value = 24;
                     progressBarBronze.Value = 24;
                     break;
 
                 case 4:
-                    progressBarDiamond.Value = sessionData.Level * 6 + sessionData.RankWins;
+                    progressBarDiamond.Value = sessionData.CurrentRank.Level * 6 + sessionData.CurrentRank.Wins;
                     progressBarPlatinum.Value = 24;
                     progressBarGold.Value = 24;
                     progressBarSilver.Value = 24;
@@ -163,34 +170,34 @@ namespace MythicTracker
                     break;
             }
 
-            if (sessionData.Rank != 5)
-                progressBarTotal.Value = sessionData.Rank * 24 + sessionData.Level * 6 + sessionData.RankWins;
+            if (sessionData.CurrentRank.Rank != 5)
+                progressBarTotal.Value = sessionData.CurrentRank.Rank * 24 + sessionData.CurrentRank.Level * 6 + sessionData.CurrentRank.Wins;
             else
                 progressBarTotal.Value = progressBarTotal.Maximum;
         }
 
         private void DisplayRank()
         {
-            switch (sessionData.Rank)
+            switch (sessionData.CurrentRank.Rank)
             {
                 case 0:
-                    labelRank.Text = $"Bronze {4 - sessionData.Level}-{sessionData.RankWins}";
+                    labelRank.Text = $"Bronze {4 - sessionData.CurrentRank.Level}-{sessionData.CurrentRank.Wins}";
                     break;
 
                 case 1:
-                    labelRank.Text = $"Silver {4 - sessionData.Level}-{sessionData.RankWins}";
+                    labelRank.Text = $"Silver {4 - sessionData.CurrentRank.Level}-{sessionData.CurrentRank.Wins}";
                     break;
 
                 case 2:
-                    labelRank.Text = $"Gold {4 - sessionData.Level}-{sessionData.RankWins}";
+                    labelRank.Text = $"Gold {4 - sessionData.CurrentRank.Level}-{sessionData.CurrentRank.Wins}";
                     break;
 
                 case 3:
-                    labelRank.Text = $"Platinum {4 - sessionData.Level}-{sessionData.RankWins}";
+                    labelRank.Text = $"Platinum {4 - sessionData.CurrentRank.Level}-{sessionData.CurrentRank.Wins}";
                     break;
 
                 case 4:
-                    labelRank.Text = $"Diamond {4 - sessionData.Level}-{sessionData.RankWins}";
+                    labelRank.Text = $"Diamond {4 - sessionData.CurrentRank.Level}-{sessionData.CurrentRank.Wins}";
                     break;
 
                 case 5:
@@ -218,12 +225,15 @@ namespace MythicTracker
             statusLabelMythicGames.Text = $"{sessionData.Mythic.Win + sessionData.Mythic.Loss}";
             statusLabelMythicPct.Text = string.Format("{0:0.000} pct", sessionData.Mythic.Pct);
 
+            statusLabelDeltaSeason.Text = string.Format("∆GR: {0:+0;-0;+0}", seasonGamesStart- sessionData.Remaining);
+            statusLabelDeltaSession.Text = string.Format("∆GR: {0:+0;-0;+0}", sessionGamesStart - sessionData.Remaining);
+
             if (undoBuffer == null)
                 toolStripButtonUndo.Enabled = false;
             else
                 toolStripButtonUndo.Enabled = true;
 
-            if(sessionData.Rank == 5)
+            if(sessionData.CurrentRank.Rank == 5)
             {
                 statusLabelMythic.Visible = true;
                 statusLabelMythicGames.Visible = true;
@@ -348,9 +358,9 @@ namespace MythicTracker
             if (undoBuffer == null)
                 undoBuffer = new SessionData();
 
-            undoBuffer.Level = sessionData.Level;
-            undoBuffer.Rank = sessionData.Rank;
-            undoBuffer.RankWins = sessionData.RankWins;
+            undoBuffer.CurrentRank.Level = sessionData.CurrentRank.Level;
+            undoBuffer.CurrentRank.Rank = sessionData.CurrentRank.Rank;
+            undoBuffer.CurrentRank.Wins = sessionData.CurrentRank.Wins;
             undoBuffer.Remaining = sessionData.Remaining;
             undoBuffer.Streak = sessionData.Streak;
             undoBuffer.WonLastGame = sessionData.WonLastGame;
@@ -367,9 +377,9 @@ namespace MythicTracker
             if (undoBuffer == null)
                 undoBuffer = new SessionData();
 
-            sessionData.Level = undoBuffer.Level;
-            sessionData.Rank = undoBuffer.Rank;
-            sessionData.RankWins = undoBuffer.RankWins;
+            sessionData.CurrentRank.Level = undoBuffer.CurrentRank.Level;
+            sessionData.CurrentRank.Rank = undoBuffer.CurrentRank.Rank;
+            sessionData.CurrentRank.Wins = undoBuffer.CurrentRank.Wins;
             sessionData.Remaining = undoBuffer.Remaining;
             sessionData.Streak = undoBuffer.Streak;
             sessionData.WonLastGame = undoBuffer.WonLastGame;
@@ -410,20 +420,20 @@ namespace MythicTracker
 
             sessionData.WonLastGame = true;
 
-            if (sessionData.Rank < 5)
+            if (sessionData.CurrentRank.Rank < 5)
             {
-                sessionData.RankWins += steps;
+                sessionData.CurrentRank.Wins += steps;
 
-                if (sessionData.RankWins > 5)
+                if (sessionData.CurrentRank.Wins > 5)
                 {
-                    sessionData.RankWins -= 6;
-                    sessionData.Level++;
+                    sessionData.CurrentRank.Wins -= 6;
+                    sessionData.CurrentRank.Level++;
                 }
 
-                if (sessionData.Level > 3)
+                if (sessionData.CurrentRank.Level > 3)
                 {
-                    sessionData.Level = 0;
-                    sessionData.Rank++;
+                    sessionData.CurrentRank.Level = 0;
+                    sessionData.CurrentRank.Rank++;
                 }
             }
             else
@@ -434,21 +444,62 @@ namespace MythicTracker
             DisplayRank();
         }
 
+        private RankData GetStartingRank()
+        {
+            RankData newRank = new RankData();
+
+            XDocument doc = XDocument.Load($"{Application.StartupPath}\\SeasonReset.xml");
+            XElement root = doc.Element("ranks");
+
+            XElement rank = root.Elements("rank").Where(r => r.Attribute("value").Value == sessionData.CurrentRank.Rank.ToString())
+                    .Elements("levels")
+                        .Elements("level").Where(l => l.Attribute("value").Value == sessionData.CurrentRank.Level.ToString()).FirstOrDefault()
+                            .Element("newRank");
+
+            newRank.Rank = int.Parse(rank.Attribute("rank").Value);
+            newRank.Level = int.Parse(rank.Attribute("level").Value);
+            newRank.Wins = 0;
+
+            return newRank;
+        }
+
         private void ResetRank(bool resetSeason)
         {
             SaveUndoBuffer();
+
+            if (resetSeason)
+            {
+                RankData newRank = GetStartingRank();
+
+                using (RankDlog dlog = new RankDlog())
+                {
+                    dlog.Text = "Select Starting Rank";
+                    dlog.WinsVisible = false;
+                    dlog.Rank = newRank.Rank;
+                    dlog.Level = newRank.Level;
+                    dlog.Wins = 0;
+
+                    if (dlog.ShowDialog() != DialogResult.OK)
+                        return;
+
+                    sessionData.CurrentRank.Rank = dlog.Rank;
+                    sessionData.CurrentRank.Level = dlog.Level;
+                    sessionData.CurrentRank.Wins = 0;
+                }
+
+                sessionData.Season.Win = 0;
+                sessionData.Season.Loss = 0;
+
+                seasonGamesStart = GetGamesRemaining();
+            }
 
             sessionData.Session.Win = 0;
             sessionData.Session.Loss = 0;
             sessionData.Streak = 0;
 
-            if(resetSeason)
-            {
-                sessionData.Season.Win = 0;
-                sessionData.Season.Loss = 0;
-            }
-
             sessionStart = DateTime.Now;
+            sessionGamesStart = GetGamesRemaining();
+
             DisplayRank();
         }
 
@@ -463,9 +514,10 @@ namespace MythicTracker
             record.SetAttributeValue("loss", sessionData.Season.Loss);
 
             XElement ladder = new XElement("ladder");
-            ladder.SetAttributeValue("rank", sessionData.Rank);
-            ladder.SetAttributeValue("level", sessionData.Level);
-            ladder.SetAttributeValue("wins", sessionData.RankWins);
+            ladder.SetAttributeValue("rank", sessionData.CurrentRank.Rank);
+            ladder.SetAttributeValue("level", sessionData.CurrentRank.Level);
+            ladder.SetAttributeValue("wins", sessionData.CurrentRank.Wins);
+            ladder.SetAttributeValue("start", seasonGamesStart);
 
             XElement mythic = new XElement("mythic");
             mythic.SetAttributeValue("win", sessionData.Mythic.Win);
@@ -509,17 +561,36 @@ namespace MythicTracker
             XElement mythic = root.Element("mythic");
             XElement games = root.Element("games");
 
-            sessionData.Season.Win = int.Parse(record.Attribute("win").Value);
-            sessionData.Season.Loss = int.Parse(record.Attribute("loss").Value);
-            sessionData.Rank = int.Parse(ladder.Attribute("rank").Value);
-            sessionData.Level = int.Parse(ladder.Attribute("level").Value);
-            sessionData.RankWins = int.Parse(ladder.Attribute("wins").Value);
-            sessionData.Mythic.Win = int.Parse(mythic.Attribute("win").Value);
-            sessionData.Mythic.Loss = int.Parse(mythic.Attribute("loss").Value);
-
-            foreach(XElement e in games.Elements())
+            if (record != null)
             {
-                resultList.Add(e.Attribute("result").Value == "W");
+                sessionData.Season.Win = int.Parse(record.Attribute("win").Value);
+                sessionData.Season.Loss = int.Parse(record.Attribute("loss").Value);
+            }
+
+            if (ladder != null)
+            {
+                sessionData.CurrentRank.Rank = int.Parse(ladder.Attribute("rank").Value);
+                sessionData.CurrentRank.Level = int.Parse(ladder.Attribute("level").Value);
+                sessionData.CurrentRank.Wins = int.Parse(ladder.Attribute("wins").Value);
+
+                if (ladder.Attribute("start") != null)
+                    seasonGamesStart = int.Parse(ladder.Attribute("start").Value);
+                else
+                    seasonGamesStart = GetGamesRemaining();
+            }
+
+            if (mythic != null)
+            {
+                sessionData.Mythic.Win = int.Parse(mythic.Attribute("win").Value);
+                sessionData.Mythic.Loss = int.Parse(mythic.Attribute("loss").Value);
+            }
+
+            if (games != null)
+            {
+                foreach (XElement e in games.Elements())
+                {
+                    resultList.Add(e.Attribute("result").Value == "W");
+                }
             }
         }
 
@@ -577,9 +648,13 @@ namespace MythicTracker
 
             LoadData();
 
+            sessionGamesStart = GetGamesRemaining();
+
             GetSeasonEnd();
             DisplayRank();
             UpdateClock();
+
+            
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -623,16 +698,16 @@ namespace MythicTracker
         {
             using (RankDlog dlog = new RankDlog())
             {
-                dlog.Rank = sessionData.Rank;
-                dlog.Level = sessionData.Level;
-                dlog.Wins = sessionData.RankWins;
+                dlog.Rank = sessionData.CurrentRank.Rank;
+                dlog.Level = sessionData.CurrentRank.Level;
+                dlog.Wins = sessionData.CurrentRank.Wins;
 
                 if (dlog.ShowDialog() != DialogResult.OK)
                     return;
 
-                sessionData.Rank = dlog.Rank;
-                sessionData.Level = dlog.Level;
-                sessionData.RankWins = dlog.Wins;
+                sessionData.CurrentRank.Rank = dlog.Rank;
+                sessionData.CurrentRank.Level = dlog.Level;
+                sessionData.CurrentRank.Wins = dlog.Wins;
 
                 DisplayRank();
             }

@@ -87,6 +87,8 @@
             this.statusLabelMythicPct = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelFileError = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSave = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelDeltaSession = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelDeltaSeason = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuLoss.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -501,10 +503,12 @@
             this.toolStripStatusLabel1,
             this.statusLabelSessionGames,
             this.statusLabelSessionPct,
+            this.statusLabelDeltaSession,
             this.statusLabelClock,
             this.toolStripStatusLabel3,
             this.statusLabelSeasonGames,
             this.statusLabelSeasonPct,
+            this.statusLabelDeltaSeason,
             this.statusLabelLast10,
             this.statusLabelMythic,
             this.statusLabelMythicRecord,
@@ -610,7 +614,7 @@
             this.statusLabelFileError.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelFileError.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.statusLabelFileError.Name = "statusLabelFileError";
-            this.statusLabelFileError.Size = new System.Drawing.Size(203, 19);
+            this.statusLabelFileError.Size = new System.Drawing.Size(62, 19);
             this.statusLabelFileError.Spring = true;
             this.statusLabelFileError.Text = "Unable to write output files.";
             this.statusLabelFileError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -618,14 +622,27 @@
             // 
             // statusLabelSave
             // 
+            this.statusLabelSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.statusLabelSave.Image = ((System.Drawing.Image)(resources.GetObject("statusLabelSave.Image")));
             this.statusLabelSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Name = "statusLabelSave";
-            this.statusLabelSave.Size = new System.Drawing.Size(407, 19);
+            this.statusLabelSave.Size = new System.Drawing.Size(62, 19);
             this.statusLabelSave.Spring = true;
             this.statusLabelSave.Text = "Saving output files...";
             this.statusLabelSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Visible = false;
+            // 
+            // statusLabelDeltaSession
+            // 
+            this.statusLabelDeltaSession.Name = "statusLabelDeltaSession";
+            this.statusLabelDeltaSession.Size = new System.Drawing.Size(35, 19);
+            this.statusLabelDeltaSession.Text = "∆: +0";
+            // 
+            // statusLabelDeltaSeason
+            // 
+            this.statusLabelDeltaSeason.Name = "statusLabelDeltaSeason";
+            this.statusLabelDeltaSeason.Size = new System.Drawing.Size(35, 19);
+            this.statusLabelDeltaSeason.Text = "∆: +0";
             // 
             // MainForm
             // 
@@ -734,6 +751,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonUndo;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelLast10;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelClock;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabelDeltaSession;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabelDeltaSeason;
     }
 }
 
