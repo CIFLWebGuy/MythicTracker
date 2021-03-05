@@ -45,7 +45,7 @@ namespace MythicTracker
 #if DEBUG
             dataFile = "records.xml";
 #else
-            dataFile = $"{Environment.SpecialFolder.LocalApplicationData}\\MythicTracker\\records.xml";
+            dataFile = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\MythicTracker\\records.xml";
 #endif
 
         }
