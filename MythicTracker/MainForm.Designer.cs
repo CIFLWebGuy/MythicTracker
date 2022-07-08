@@ -76,19 +76,20 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSessionGames = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSessionPct = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusLabelLast10 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelDeltaSession = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelClock = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSeasonGames = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSeasonPct = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelDeltaSeason = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabelLast10 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelMythic = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelMythicRecord = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelMythicGames = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelMythicPct = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelFileError = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSave = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusLabelDeltaSession = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusLabelDeltaSeason = new System.Windows.Forms.ToolStripStatusLabel();
+            this.goBack2StepsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuLoss.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -100,9 +101,9 @@
             this.labelGames.Font = new System.Drawing.Font("Beleren Small Caps", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGames.Location = new System.Drawing.Point(551, 48);
             this.labelGames.Name = "labelGames";
-            this.labelGames.Size = new System.Drawing.Size(287, 32);
+            this.labelGames.Size = new System.Drawing.Size(273, 32);
             this.labelGames.TabIndex = 0;
-            this.labelGames.Text = "Games Remaining: 120";
+            this.labelGames.Text = "Steps Remaining: 120";
             // 
             // progressBarTotal
             // 
@@ -305,14 +306,14 @@
             this.advance1StepToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.advance1StepToolStripMenuItem.Name = "advance1StepToolStripMenuItem";
             this.advance1StepToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.advance1StepToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.advance1StepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.advance1StepToolStripMenuItem.Text = "Advance 1 step";
             this.advance1StepToolStripMenuItem.Click += new System.EventHandler(this.advance1StepToolStripMenuItem_Click);
             // 
             // advance2StepsToolStripMenuItem
             // 
             this.advance2StepsToolStripMenuItem.Name = "advance2StepsToolStripMenuItem";
-            this.advance2StepsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.advance2StepsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.advance2StepsToolStripMenuItem.Text = "Advance 2 steps";
             this.advance2StepsToolStripMenuItem.Click += new System.EventHandler(this.advance2StepsToolStripMenuItem_Click);
             // 
@@ -320,7 +321,8 @@
             // 
             this.toolStripButtonLoss.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.doesNotAffectRankToolStripMenuItem,
-            this.affectsRankToolStripMenuItem});
+            this.affectsRankToolStripMenuItem,
+            this.goBack2StepsToolStripMenuItem});
             this.toolStripButtonLoss.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLoss.Image")));
             this.toolStripButtonLoss.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonLoss.Name = "toolStripButtonLoss";
@@ -333,7 +335,7 @@
             // 
             this.doesNotAffectRankToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.doesNotAffectRankToolStripMenuItem.Name = "doesNotAffectRankToolStripMenuItem";
-            this.doesNotAffectRankToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.doesNotAffectRankToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.doesNotAffectRankToolStripMenuItem.Text = "Go back 0 steps";
             this.doesNotAffectRankToolStripMenuItem.Click += new System.EventHandler(this.doesNotAffectRankToolStripMenuItem_Click);
             // 
@@ -341,7 +343,7 @@
             // 
             this.affectsRankToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.affectsRankToolStripMenuItem.Name = "affectsRankToolStripMenuItem";
-            this.affectsRankToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.affectsRankToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.affectsRankToolStripMenuItem.Text = "Go back 1 step";
             this.affectsRankToolStripMenuItem.Click += new System.EventHandler(this.affectsRankToolStripMenuItem_Click);
             // 
@@ -394,14 +396,14 @@
             // 
             this.resetSessionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.resetSessionToolStripMenuItem.Name = "resetSessionToolStripMenuItem";
-            this.resetSessionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetSessionToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.resetSessionToolStripMenuItem.Text = "Reset session";
             this.resetSessionToolStripMenuItem.Click += new System.EventHandler(this.resetSessionToolStripMenuItem_Click);
             // 
             // resetSeasonToolStripMenuItem
             // 
             this.resetSeasonToolStripMenuItem.Name = "resetSeasonToolStripMenuItem";
-            this.resetSeasonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetSeasonToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.resetSeasonToolStripMenuItem.Text = "Reset season";
             this.resetSeasonToolStripMenuItem.Click += new System.EventHandler(this.resetSeasonToolStripMenuItem_Click);
             // 
@@ -543,11 +545,11 @@
             this.statusLabelSessionPct.Size = new System.Drawing.Size(54, 19);
             this.statusLabelSessionPct.Text = "0.000 pct";
             // 
-            // statusLabelLast10
+            // statusLabelDeltaSession
             // 
-            this.statusLabelLast10.Name = "statusLabelLast10";
-            this.statusLabelLast10.Size = new System.Drawing.Size(66, 19);
-            this.statusLabelLast10.Text = "Last 10: 0-0";
+            this.statusLabelDeltaSession.Name = "statusLabelDeltaSession";
+            this.statusLabelDeltaSession.Size = new System.Drawing.Size(35, 19);
+            this.statusLabelDeltaSession.Text = "∆: +0";
             // 
             // statusLabelClock
             // 
@@ -577,6 +579,18 @@
             this.statusLabelSeasonPct.Name = "statusLabelSeasonPct";
             this.statusLabelSeasonPct.Size = new System.Drawing.Size(54, 19);
             this.statusLabelSeasonPct.Text = "0.000 pct";
+            // 
+            // statusLabelDeltaSeason
+            // 
+            this.statusLabelDeltaSeason.Name = "statusLabelDeltaSeason";
+            this.statusLabelDeltaSeason.Size = new System.Drawing.Size(35, 19);
+            this.statusLabelDeltaSeason.Text = "∆: +0";
+            // 
+            // statusLabelLast10
+            // 
+            this.statusLabelLast10.Name = "statusLabelLast10";
+            this.statusLabelLast10.Size = new System.Drawing.Size(66, 19);
+            this.statusLabelLast10.Text = "Last 10: 0-0";
             // 
             // statusLabelMythic
             // 
@@ -614,7 +628,7 @@
             this.statusLabelFileError.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelFileError.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.statusLabelFileError.Name = "statusLabelFileError";
-            this.statusLabelFileError.Size = new System.Drawing.Size(62, 19);
+            this.statusLabelFileError.Size = new System.Drawing.Size(168, 19);
             this.statusLabelFileError.Spring = true;
             this.statusLabelFileError.Text = "Unable to write output files.";
             this.statusLabelFileError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -626,23 +640,18 @@
             this.statusLabelSave.Image = ((System.Drawing.Image)(resources.GetObject("statusLabelSave.Image")));
             this.statusLabelSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Name = "statusLabelSave";
-            this.statusLabelSave.Size = new System.Drawing.Size(62, 19);
+            this.statusLabelSave.Size = new System.Drawing.Size(337, 19);
             this.statusLabelSave.Spring = true;
             this.statusLabelSave.Text = "Saving output files...";
             this.statusLabelSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Visible = false;
             // 
-            // statusLabelDeltaSession
+            // goBack2StepsToolStripMenuItem
             // 
-            this.statusLabelDeltaSession.Name = "statusLabelDeltaSession";
-            this.statusLabelDeltaSession.Size = new System.Drawing.Size(35, 19);
-            this.statusLabelDeltaSession.Text = "∆: +0";
-            // 
-            // statusLabelDeltaSeason
-            // 
-            this.statusLabelDeltaSeason.Name = "statusLabelDeltaSeason";
-            this.statusLabelDeltaSeason.Size = new System.Drawing.Size(35, 19);
-            this.statusLabelDeltaSeason.Text = "∆: +0";
+            this.goBack2StepsToolStripMenuItem.Name = "goBack2StepsToolStripMenuItem";
+            this.goBack2StepsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.goBack2StepsToolStripMenuItem.Text = "Go back 2 steps";
+            this.goBack2StepsToolStripMenuItem.Click += new System.EventHandler(this.goBack2StepsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -753,6 +762,7 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLabelClock;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelDeltaSession;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelDeltaSeason;
+        private System.Windows.Forms.ToolStripMenuItem goBack2StepsToolStripMenuItem;
     }
 }
 

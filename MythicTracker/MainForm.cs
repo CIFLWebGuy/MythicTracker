@@ -67,7 +67,7 @@ namespace MythicTracker
         private void UpdateRemaining()
         {
             sessionData.Remaining = GetGamesRemaining();
-            labelGames.Text = $"Games Remaining: {sessionData.Remaining}";
+            labelGames.Text = $"Steps Remaining: {sessionData.Remaining}";
         }
 
         private int GetGamesRemaining()
@@ -75,7 +75,7 @@ namespace MythicTracker
             return 120 - sessionData.CurrentRank.Rank * 24 - sessionData.CurrentRank.Level * 6 - sessionData.CurrentRank.Wins;
         }
 
-        private void DoLoss(bool loseRank)
+        private void DoLoss(int steps)
         {
             SaveUndoBuffer();
             QueueResult(false);
@@ -90,9 +90,9 @@ namespace MythicTracker
 
             sessionData.WonLastGame = false;
 
-            if (loseRank && sessionData.CurrentRank.Rank < 5 && !(sessionData.CurrentRank.Level == 0 && sessionData.CurrentRank.Wins == 0))
+            if (sessionData.CurrentRank.Rank < 5 && !(sessionData.CurrentRank.Level == 0 && sessionData.CurrentRank.Wins == 0))
             {
-                sessionData.CurrentRank.Wins--;
+                sessionData.CurrentRank.Wins -= steps;
             }
             else if (sessionData.CurrentRank.Rank == 5)
             {
@@ -101,7 +101,7 @@ namespace MythicTracker
             
             if (sessionData.CurrentRank.Wins < 0)
             {
-                sessionData.CurrentRank.Wins = 5;
+                sessionData.CurrentRank.Wins = 6 - steps;
                 sessionData.CurrentRank.Level--;
             }
 
@@ -221,7 +221,7 @@ namespace MythicTracker
             statusLabelSeasonGames.Text = $"{sessionData.Season.Win + sessionData.Season.Loss} games";
             statusLabelSeasonPct.Text = string.Format("{0:0.000} pct", sessionData.Season.Pct);
 
-            statusLabelMythic.Text = $"{sessionData.Mythic.Win} - {sessionData.Mythic.Loss}";
+            statusLabelMythicRecord.Text = $"{sessionData.Mythic.Win} - {sessionData.Mythic.Loss}";
             statusLabelMythicGames.Text = $"{sessionData.Mythic.Win + sessionData.Mythic.Loss}";
             statusLabelMythicPct.Text = string.Format("{0:0.000} pct", sessionData.Mythic.Pct);
 
@@ -236,6 +236,7 @@ namespace MythicTracker
             if(sessionData.CurrentRank.Rank == 5)
             {
                 statusLabelMythic.Visible = true;
+                statusLabelMythicRecord.Visible = true;
                 statusLabelMythicGames.Visible = true;
                 statusLabelMythicPct.Visible = true;
                 statusLabelMythic.Visible = true;
@@ -243,6 +244,7 @@ namespace MythicTracker
             else
             {
                 statusLabelMythic.Visible = false;
+                statusLabelMythicRecord.Visible = false;
                 statusLabelMythicGames.Visible = false;
                 statusLabelMythicPct.Visible = false;
                 statusLabelMythic.Visible = false;
@@ -621,14 +623,18 @@ namespace MythicTracker
                     case Keys.OemMinus:
                         if (modifer == ModiferKey.Control)
                         {
-                            DoLoss(true);
+                            DoLoss(1);
                         }
 
                         if (modifer == (ModiferKey.Control | ModiferKey.Alt))
                         {
-                            DoLoss(false);
+                            DoLoss(0);
                         }
 
+                        if(modifer == (ModiferKey.Control | ModiferKey.Shift))
+                        {
+                            DoLoss(2);
+                        }
                         break;
                 }
             }
@@ -642,6 +648,7 @@ namespace MythicTracker
             RegisterHotKey(this.Handle, 1, (uint)(ModiferKey.Control | ModiferKey.Alt), (uint)Keys.Oemplus);
             RegisterHotKey(this.Handle, 2, (uint)ModiferKey.Control, (uint)Keys.OemMinus);
             RegisterHotKey(this.Handle, 3, (uint)(ModiferKey.Control | ModiferKey.Alt), (uint)Keys.OemMinus);
+            RegisterHotKey(this.Handle, 4, (uint)(ModiferKey.Control | ModiferKey.Shift) , (uint)Keys.OemMinus);
 
             if (Properties.Settings.Default.OutputPath == "")
                 Properties.Settings.Default.OutputPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\MythicTracker";
@@ -671,12 +678,12 @@ namespace MythicTracker
 
         private void contextMenuItemDecrease_Click(object sender, EventArgs e)
         {
-            DoLoss(true);
+            DoLoss(1);
         }
 
         private void contextMenuItemNoDecrease_Click(object sender, EventArgs e)
         {
-            DoLoss(false);
+            DoLoss(0);
         }
 
         private void toolStripButtonWin_ButtonCClick(object sender, EventArgs e)
@@ -686,12 +693,12 @@ namespace MythicTracker
 
         private void affectsRankToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DoLoss(true);
+            DoLoss(1);
         }
 
         private void doesNotAffectRankToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DoLoss(false);
+            DoLoss(0);
         }
 
         private void toolStripButtonRank_Click(object sender, EventArgs e)
@@ -757,7 +764,7 @@ namespace MythicTracker
 
         private void toolStripButtonLoss_ButtonClick(object sender, EventArgs e)
         {
-            DoLoss(true);
+            DoLoss(1);
         }
 
         private void advance1StepToolStripMenuItem_Click(object sender, EventArgs e)
@@ -800,6 +807,11 @@ namespace MythicTracker
         private void toolStripButtonUndo_Click(object sender, EventArgs e)
         {
             DoUndo();
+        }
+
+        private void goBack2StepsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoLoss(2);
         }
     }
 }

@@ -92,7 +92,9 @@
     <Content Include="no-icon.png" />
     <Content Include="Rank.png" />
     <Content Include="REcord.png" />
-    <Content Include="records.xml" />
+    <Content Include="records.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SeasonReset.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
