@@ -80,6 +80,9 @@ namespace MythicTracker
             SaveUndoBuffer();
             QueueResult(false);
 
+            if (toolStripButtonMatch.Checked)
+                steps *= 2;
+
             sessionData.Session.Loss++;
             sessionData.Season.Loss++;
 
@@ -424,7 +427,10 @@ namespace MythicTracker
 
             if (sessionData.CurrentRank.Rank < 5)
             {
-                sessionData.CurrentRank.Wins += steps;
+                if (toolStripButtonMatch.Checked)
+                    sessionData.CurrentRank.Wins += steps * 2;
+                else
+                    sessionData.CurrentRank.Wins += steps;
 
                 if (sessionData.CurrentRank.Wins > 5)
                 {

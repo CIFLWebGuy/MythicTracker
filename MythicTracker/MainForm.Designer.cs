@@ -56,6 +56,7 @@
             this.toolStripButtonLoss = new System.Windows.Forms.ToolStripSplitButton();
             this.doesNotAffectRankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.affectsRankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goBack2StepsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonUndo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRank = new System.Windows.Forms.ToolStripButton();
@@ -89,7 +90,7 @@
             this.statusLabelMythicPct = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelFileError = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSave = new System.Windows.Forms.ToolStripStatusLabel();
-            this.goBack2StepsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonMatch = new System.Windows.Forms.ToolStripButton();
             this.contextMenuLoss.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -276,6 +277,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonWin,
             this.toolStripButtonLoss,
+            this.toolStripButtonMatch,
             this.toolStripSeparator1,
             this.toolStripButtonUndo,
             this.toolStripButtonRank,
@@ -335,7 +337,7 @@
             // 
             this.doesNotAffectRankToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.doesNotAffectRankToolStripMenuItem.Name = "doesNotAffectRankToolStripMenuItem";
-            this.doesNotAffectRankToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.doesNotAffectRankToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.doesNotAffectRankToolStripMenuItem.Text = "Go back 0 steps";
             this.doesNotAffectRankToolStripMenuItem.Click += new System.EventHandler(this.doesNotAffectRankToolStripMenuItem_Click);
             // 
@@ -343,9 +345,16 @@
             // 
             this.affectsRankToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.affectsRankToolStripMenuItem.Name = "affectsRankToolStripMenuItem";
-            this.affectsRankToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.affectsRankToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.affectsRankToolStripMenuItem.Text = "Go back 1 step";
             this.affectsRankToolStripMenuItem.Click += new System.EventHandler(this.affectsRankToolStripMenuItem_Click);
+            // 
+            // goBack2StepsToolStripMenuItem
+            // 
+            this.goBack2StepsToolStripMenuItem.Name = "goBack2StepsToolStripMenuItem";
+            this.goBack2StepsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.goBack2StepsToolStripMenuItem.Text = "Go back 2 steps";
+            this.goBack2StepsToolStripMenuItem.Click += new System.EventHandler(this.goBack2StepsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -646,12 +655,14 @@
             this.statusLabelSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Visible = false;
             // 
-            // goBack2StepsToolStripMenuItem
+            // toolStripButtonMatch
             // 
-            this.goBack2StepsToolStripMenuItem.Name = "goBack2StepsToolStripMenuItem";
-            this.goBack2StepsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.goBack2StepsToolStripMenuItem.Text = "Go back 2 steps";
-            this.goBack2StepsToolStripMenuItem.Click += new System.EventHandler(this.goBack2StepsToolStripMenuItem_Click);
+            this.toolStripButtonMatch.CheckOnClick = true;
+            this.toolStripButtonMatch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMatch.Image")));
+            this.toolStripButtonMatch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMatch.Name = "toolStripButtonMatch";
+            this.toolStripButtonMatch.Size = new System.Drawing.Size(102, 36);
+            this.toolStripButtonMatch.Text = "Match play";
             // 
             // MainForm
             // 
@@ -763,6 +774,7 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLabelDeltaSession;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelDeltaSeason;
         private System.Windows.Forms.ToolStripMenuItem goBack2StepsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMatch;
     }
 }
 
