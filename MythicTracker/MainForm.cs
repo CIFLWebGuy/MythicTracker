@@ -35,12 +35,15 @@ namespace MythicTracker
         private int seasonGamesStart;
         private int sessionGamesStart;
 
+        private OverlayForm overlayForm;
+
         public MainForm()
         {
             InitializeComponent();
 
             sessionData = new SessionData();
             resultList = new List<bool>();
+            overlayForm = new OverlayForm();
 
 #if DEBUG
             dataFile = "records.xml";
@@ -214,10 +217,12 @@ namespace MythicTracker
             UpdateRemaining();
             UpdateProgress();
             UpdateLast10();
+            UpdateOverlay();
 
             labelRecord.Text = $"{sessionData.Session.Win} - {sessionData.Session.Loss}";
             labelSeason.Text = $"{sessionData.Season.Win} - {sessionData.Season.Loss}";
 
+            statusLabelLast10.Text = $"Last 10: {sessionData.Last10.Win}-{sessionData.Last10.Loss}";
             statusLabelSessionGames.Text = $"{sessionData.Session.Win + sessionData.Session.Loss} games";
             statusLabelSessionPct.Text = string.Format("{0:0.000} pct", sessionData.Session.Pct);
             
@@ -228,8 +233,8 @@ namespace MythicTracker
             statusLabelMythicGames.Text = $"{sessionData.Mythic.Win + sessionData.Mythic.Loss}";
             statusLabelMythicPct.Text = string.Format("{0:0.000} pct", sessionData.Mythic.Pct);
 
-            statusLabelDeltaSeason.Text = string.Format("∆GR: {0:+0;-0;+0}", seasonGamesStart- sessionData.Remaining);
-            statusLabelDeltaSession.Text = string.Format("∆GR: {0:+0;-0;+0}", sessionGamesStart - sessionData.Remaining);
+            statusLabelDeltaSeason.Text = string.Format("∆SR {0:+0;-0;+0}", seasonGamesStart- sessionData.Remaining);
+            statusLabelDeltaSession.Text = string.Format("∆SR: {0:+0;-0;+0}", sessionGamesStart - sessionData.Remaining);
 
             if (undoBuffer == null)
                 toolStripButtonUndo.Enabled = false;
@@ -273,18 +278,34 @@ namespace MythicTracker
 
         private void UpdateLast10()
         {
-            int win = 0;
-            int loss = 0;
+            sessionData.Last10.Win = 0;
+            sessionData.Last10.Loss = 0;
 
             foreach(bool r in resultList)
             {
                 if (r)
-                    win++;
+                    sessionData.Last10.Win++;
                 else
-                    loss++;
+                    sessionData.Last10.Loss++;
             }
+        }
 
-            statusLabelLast10.Text = $"Last 10: {win} - {loss}";
+        private void UpdateOverlay()
+        {
+            overlayForm.SetSessionRecord(sessionData.Session.Win, sessionData.Session.Loss);
+            overlayForm.SetSeasonRecord(sessionData.Season.Win, sessionData.Season.Loss);
+            overlayForm.SetRank(labelRank.Text);
+            overlayForm.SetStreak(sessionData.Streak);
+            overlayForm.SetLast10(sessionData.Last10.Win, sessionData.Last10.Loss);
+
+            if(sessionData.Remaining == 0)
+            {
+                overlayForm.SetMythicRecord(sessionData.Mythic.Win, sessionData.Mythic.Loss);
+            }
+            else
+            {
+                overlayForm.SetRemaining(sessionData.Remaining);
+            }
         }
 
         private void WriteOutputFiles()
@@ -707,26 +728,7 @@ namespace MythicTracker
             DoLoss(0);
         }
 
-        private void toolStripButtonRank_Click(object sender, EventArgs e)
-        {
-            using (RankDlog dlog = new RankDlog())
-            {
-                dlog.Rank = sessionData.CurrentRank.Rank;
-                dlog.Level = sessionData.CurrentRank.Level;
-                dlog.Wins = sessionData.CurrentRank.Wins;
-
-                if (dlog.ShowDialog() != DialogResult.OK)
-                    return;
-
-                sessionData.CurrentRank.Rank = dlog.Rank;
-                sessionData.CurrentRank.Level = dlog.Level;
-                sessionData.CurrentRank.Wins = dlog.Wins;
-
-                DisplayRank();
-            }
-        }
-
-        private void toolStripButtonSetRank_Click(object sender, EventArgs e)
+        private void ResetRecord()
         {
             using (RecordDlog dlog = new RecordDlog())
             {
@@ -749,6 +751,30 @@ namespace MythicTracker
 
                 DisplayRank();
             }
+        }
+
+        private void toolStripButtonRank_Click(object sender, EventArgs e)
+        {
+            using (RankDlog dlog = new RankDlog())
+            {
+                dlog.Rank = sessionData.CurrentRank.Rank;
+                dlog.Level = sessionData.CurrentRank.Level;
+                dlog.Wins = sessionData.CurrentRank.Wins;
+
+                if (dlog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                sessionData.CurrentRank.Rank = dlog.Rank;
+                sessionData.CurrentRank.Level = dlog.Level;
+                sessionData.CurrentRank.Wins = dlog.Wins;
+
+                DisplayRank();
+            }
+        }
+
+        private void toolStripButtonSetRank_Click(object sender, EventArgs e)
+        {
+            ResetRecord();
         }
 
         private void toolStripButtonResetRank_Click(object sender, EventArgs e)
@@ -783,21 +809,6 @@ namespace MythicTracker
             DoWin(2);
         }
 
-        private void toolStripButtonResetRank_ButtonClick(object sender, EventArgs e)
-        {
-            ResetRank(false);
-        }
-
-        private void resetSessionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ResetRank(false);
-        }
-
-        private void resetSeasonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ResetRank(true);
-        }
-
         private void toolStripButtonSettings_Click(object sender, EventArgs e)
         {
             using(SettingsDialog dlog = new SettingsDialog())
@@ -818,6 +829,33 @@ namespace MythicTracker
         private void goBack2StepsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DoLoss(2);
+        }
+
+        private void toolStripMenuItemSetRecord_Click(object sender, EventArgs e)
+        {
+            ResetRecord();
+        }
+
+        private void toolStripMenuItemResetSession_Click(object sender, EventArgs e)
+        {
+            ResetRank(false);
+        }
+
+        private void toolStripMenuItemResetSeason_Click(object sender, EventArgs e)
+        {
+            ResetRank(true);
+        }
+
+        private void toolStripButtonOverlay_Click(object sender, EventArgs e)
+        {
+            if(toolStripButtonOverlay.Checked)
+            {
+                overlayForm.Show();
+            }
+            else
+            {
+                overlayForm.Hide();
+            }
         }
     }
 }

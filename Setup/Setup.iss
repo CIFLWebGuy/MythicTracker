@@ -37,7 +37,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "D:\source\repos\MythicTracker\MythicTracker\bin\Release\{#MyAppExeName}"; DestDir: "{app}";
-Source: "D:\source\repos\MythicTracker\MythicTracker\bin\Release\BELEREN-BOLD.TTF"; DestDir: "{autofonts}"; Flags: onlyifdestfileexists uninsneveruninstall
+Source: "D:\source\repos\MythicTracker\MythicTracker\bin\Release\BELEREN-BOLD.TTF"; DestDir: "{autofonts}"; FontInstall: "Beleren Bold"; Flags: onlyifdestfileexists uninsneveruninstall
 Source: "D:\source\repos\MythicTracker\MythicTracker\bin\Release\MythicTracker.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\MythicTracker\MythicTracker\bin\Release\records.xml"; DestDir: "{app}"; Flags: onlyifdoesntexist
 Source: "D:\source\repos\MythicTracker\MythicTracker\bin\Release\SeasonReset.xml"; DestDir: "{app}"; Flags: onlyifdoesntexist

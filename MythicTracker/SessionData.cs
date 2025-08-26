@@ -46,12 +46,18 @@ namespace MythicTracker
         /// </summary>
         public MatchRecord Mythic { get; }
 
+        /// <summary>
+        /// Gets the record for the last 10 games.
+        /// </summary>
+        public MatchRecord Last10 { get; }
+
         public SessionData()
         {
             Session = new MatchRecord();
             Season = new MatchRecord();
             Mythic = new MatchRecord();
             CurrentRank = new RankData();
+            Last10 = new MatchRecord();
         }
     }
 }

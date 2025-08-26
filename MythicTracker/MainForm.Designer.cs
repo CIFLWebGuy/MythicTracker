@@ -57,13 +57,10 @@
             this.doesNotAffectRankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.affectsRankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goBack2StepsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonMatch = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonUndo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRank = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSetRank = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonResetRank = new System.Windows.Forms.ToolStripSplitButton();
-            this.resetSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetSeasonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.labelClock = new System.Windows.Forms.Label();
@@ -90,7 +87,14 @@
             this.statusLabelMythicPct = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelFileError = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLabelSave = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripButtonMatch = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOverlay = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSetRank = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItemSetRecord = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemResetSession = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemResetSeason = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuLoss.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -99,8 +103,8 @@
             // labelGames
             // 
             this.labelGames.AutoSize = true;
-            this.labelGames.Font = new System.Drawing.Font("Beleren Small Caps", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGames.Location = new System.Drawing.Point(551, 48);
+            this.labelGames.Font = new System.Drawing.Font("Beleren Small Caps", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGames.Location = new System.Drawing.Point(536, 48);
             this.labelGames.Name = "labelGames";
             this.labelGames.Size = new System.Drawing.Size(273, 32);
             this.labelGames.TabIndex = 0;
@@ -108,7 +112,7 @@
             // 
             // progressBarTotal
             // 
-            this.progressBarTotal.Location = new System.Drawing.Point(552, 83);
+            this.progressBarTotal.Location = new System.Drawing.Point(537, 83);
             this.progressBarTotal.Maximum = 120;
             this.progressBarTotal.Name = "progressBarTotal";
             this.progressBarTotal.Size = new System.Drawing.Size(299, 23);
@@ -117,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 19);
@@ -135,7 +139,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 19);
@@ -153,7 +157,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(12, 289);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 19);
@@ -171,7 +175,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(12, 208);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 19);
@@ -189,7 +193,7 @@
             // labelBronze
             // 
             this.labelBronze.AutoSize = true;
-            this.labelBronze.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBronze.Font = new System.Drawing.Font("Beleren Small Caps", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBronze.Location = new System.Drawing.Point(12, 374);
             this.labelBronze.Name = "labelBronze";
             this.labelBronze.Size = new System.Drawing.Size(66, 19);
@@ -207,7 +211,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Beleren Small Caps", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(552, 139);
+            this.label8.Location = new System.Drawing.Point(537, 139);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(171, 34);
             this.label8.TabIndex = 14;
@@ -218,7 +222,7 @@
             this.labelRank.BackColor = System.Drawing.SystemColors.Control;
             this.labelRank.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelRank.Font = new System.Drawing.Font("Beleren Small Caps", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRank.Location = new System.Drawing.Point(552, 173);
+            this.labelRank.Location = new System.Drawing.Point(537, 173);
             this.labelRank.Name = "labelRank";
             this.labelRank.Size = new System.Drawing.Size(171, 34);
             this.labelRank.TabIndex = 15;
@@ -230,7 +234,7 @@
             this.labelRecord.BackColor = System.Drawing.SystemColors.Control;
             this.labelRecord.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelRecord.Font = new System.Drawing.Font("Beleren Small Caps", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecord.Location = new System.Drawing.Point(729, 173);
+            this.labelRecord.Location = new System.Drawing.Point(714, 173);
             this.labelRecord.Name = "labelRecord";
             this.labelRecord.Size = new System.Drawing.Size(119, 34);
             this.labelRecord.TabIndex = 20;
@@ -240,7 +244,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Beleren Small Caps", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(729, 139);
+            this.label2.Location = new System.Drawing.Point(714, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 34);
             this.label2.TabIndex = 19;
@@ -280,14 +284,16 @@
             this.toolStripButtonMatch,
             this.toolStripSeparator1,
             this.toolStripButtonUndo,
+            this.toolStripSeparator2,
             this.toolStripButtonRank,
             this.toolStripButtonSetRank,
-            this.toolStripButtonResetRank,
             this.toolStripButtonAbout,
+            this.toolStripSeparator3,
+            this.toolStripButtonOverlay,
             this.toolStripButtonSettings});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(867, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(848, 39);
             this.toolStrip1.TabIndex = 27;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -308,14 +314,14 @@
             this.advance1StepToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.advance1StepToolStripMenuItem.Name = "advance1StepToolStripMenuItem";
             this.advance1StepToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.advance1StepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.advance1StepToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.advance1StepToolStripMenuItem.Text = "Advance 1 step";
             this.advance1StepToolStripMenuItem.Click += new System.EventHandler(this.advance1StepToolStripMenuItem_Click);
             // 
             // advance2StepsToolStripMenuItem
             // 
             this.advance2StepsToolStripMenuItem.Name = "advance2StepsToolStripMenuItem";
-            this.advance2StepsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.advance2StepsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.advance2StepsToolStripMenuItem.Text = "Advance 2 steps";
             this.advance2StepsToolStripMenuItem.Click += new System.EventHandler(this.advance2StepsToolStripMenuItem_Click);
             // 
@@ -356,6 +362,15 @@
             this.goBack2StepsToolStripMenuItem.Text = "Go back 2 steps";
             this.goBack2StepsToolStripMenuItem.Click += new System.EventHandler(this.goBack2StepsToolStripMenuItem_Click);
             // 
+            // toolStripButtonMatch
+            // 
+            this.toolStripButtonMatch.CheckOnClick = true;
+            this.toolStripButtonMatch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMatch.Image")));
+            this.toolStripButtonMatch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMatch.Name = "toolStripButtonMatch";
+            this.toolStripButtonMatch.Size = new System.Drawing.Size(102, 36);
+            this.toolStripButtonMatch.Text = "Match play";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -379,42 +394,6 @@
             this.toolStripButtonRank.Size = new System.Drawing.Size(85, 36);
             this.toolStripButtonRank.Text = "Set rank";
             this.toolStripButtonRank.Click += new System.EventHandler(this.toolStripButtonRank_Click);
-            // 
-            // toolStripButtonSetRank
-            // 
-            this.toolStripButtonSetRank.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSetRank.Image")));
-            this.toolStripButtonSetRank.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSetRank.Name = "toolStripButtonSetRank";
-            this.toolStripButtonSetRank.Size = new System.Drawing.Size(96, 36);
-            this.toolStripButtonSetRank.Text = "Set record";
-            this.toolStripButtonSetRank.Click += new System.EventHandler(this.toolStripButtonSetRank_Click);
-            // 
-            // toolStripButtonResetRank
-            // 
-            this.toolStripButtonResetRank.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetSessionToolStripMenuItem,
-            this.resetSeasonToolStripMenuItem});
-            this.toolStripButtonResetRank.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonResetRank.Image")));
-            this.toolStripButtonResetRank.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonResetRank.Name = "toolStripButtonResetRank";
-            this.toolStripButtonResetRank.Size = new System.Drawing.Size(120, 36);
-            this.toolStripButtonResetRank.Text = "Reset record";
-            this.toolStripButtonResetRank.ButtonClick += new System.EventHandler(this.toolStripButtonResetRank_ButtonClick);
-            // 
-            // resetSessionToolStripMenuItem
-            // 
-            this.resetSessionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.resetSessionToolStripMenuItem.Name = "resetSessionToolStripMenuItem";
-            this.resetSessionToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.resetSessionToolStripMenuItem.Text = "Reset session";
-            this.resetSessionToolStripMenuItem.Click += new System.EventHandler(this.resetSessionToolStripMenuItem_Click);
-            // 
-            // resetSeasonToolStripMenuItem
-            // 
-            this.resetSeasonToolStripMenuItem.Name = "resetSeasonToolStripMenuItem";
-            this.resetSeasonToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.resetSeasonToolStripMenuItem.Text = "Reset season";
-            this.resetSeasonToolStripMenuItem.Click += new System.EventHandler(this.resetSeasonToolStripMenuItem_Click);
             // 
             // toolStripButtonAbout
             // 
@@ -440,7 +419,7 @@
             this.labelClock.BackColor = System.Drawing.Color.Black;
             this.labelClock.Font = new System.Drawing.Font("Beleren", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClock.ForeColor = System.Drawing.Color.White;
-            this.labelClock.Location = new System.Drawing.Point(683, 393);
+            this.labelClock.Location = new System.Drawing.Point(668, 393);
             this.labelClock.Name = "labelClock";
             this.labelClock.Size = new System.Drawing.Size(168, 37);
             this.labelClock.TabIndex = 28;
@@ -456,7 +435,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Beleren Small Caps", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(683, 359);
+            this.label1.Location = new System.Drawing.Point(668, 359);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 34);
             this.label1.TabIndex = 29;
@@ -468,7 +447,7 @@
             this.labelStreak.BackColor = System.Drawing.SystemColors.Control;
             this.labelStreak.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelStreak.Font = new System.Drawing.Font("Beleren Small Caps", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStreak.Location = new System.Drawing.Point(552, 274);
+            this.labelStreak.Location = new System.Drawing.Point(537, 274);
             this.labelStreak.Name = "labelStreak";
             this.labelStreak.Size = new System.Drawing.Size(171, 34);
             this.labelStreak.TabIndex = 31;
@@ -478,7 +457,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Beleren Small Caps", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(552, 240);
+            this.label9.Location = new System.Drawing.Point(537, 240);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(171, 34);
             this.label9.TabIndex = 30;
@@ -490,7 +469,7 @@
             this.labelSeason.BackColor = System.Drawing.SystemColors.Control;
             this.labelSeason.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelSeason.Font = new System.Drawing.Font("Beleren Small Caps", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSeason.Location = new System.Drawing.Point(729, 274);
+            this.labelSeason.Location = new System.Drawing.Point(714, 274);
             this.labelSeason.Name = "labelSeason";
             this.labelSeason.Size = new System.Drawing.Size(119, 34);
             this.labelSeason.TabIndex = 35;
@@ -500,7 +479,7 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Beleren Small Caps", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(744, 240);
+            this.label10.Location = new System.Drawing.Point(729, 240);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 34);
             this.label10.TabIndex = 34;
@@ -529,7 +508,7 @@
             this.statusLabelSave});
             this.statusStrip.Location = new System.Drawing.Point(0, 448);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(867, 24);
+            this.statusStrip.Size = new System.Drawing.Size(848, 24);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 36;
             this.statusStrip.Text = "statusStrip1";
@@ -655,21 +634,73 @@
             this.statusLabelSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.statusLabelSave.Visible = false;
             // 
-            // toolStripButtonMatch
+            // toolStripButtonOverlay
             // 
-            this.toolStripButtonMatch.CheckOnClick = true;
-            this.toolStripButtonMatch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMatch.Image")));
-            this.toolStripButtonMatch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonMatch.Name = "toolStripButtonMatch";
-            this.toolStripButtonMatch.Size = new System.Drawing.Size(102, 36);
-            this.toolStripButtonMatch.Text = "Match play";
+            this.toolStripButtonOverlay.CheckOnClick = true;
+            this.toolStripButtonOverlay.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOverlay.Image")));
+            this.toolStripButtonOverlay.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOverlay.Name = "toolStripButtonOverlay";
+            this.toolStripButtonOverlay.Size = new System.Drawing.Size(113, 36);
+            this.toolStripButtonOverlay.Text = "Show overlay";
+            this.toolStripButtonOverlay.Click += new System.EventHandler(this.toolStripButtonOverlay_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripButtonSetRank
+            // 
+            this.toolStripButtonSetRank.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemSetRecord,
+            this.toolStripSeparator4,
+            this.toolStripMenuItemResetSession,
+            this.toolStripMenuItemResetSeason});
+            this.toolStripButtonSetRank.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSetRank.Image")));
+            this.toolStripButtonSetRank.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSetRank.Name = "toolStripButtonSetRank";
+            this.toolStripButtonSetRank.Size = new System.Drawing.Size(105, 36);
+            this.toolStripButtonSetRank.Text = "Set record";
+            this.toolStripButtonSetRank.Click += new System.EventHandler(this.toolStripButtonSetRank_Click);
+            // 
+            // toolStripMenuItemSetRecord
+            // 
+            this.toolStripMenuItemSetRecord.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItemSetRecord.Name = "toolStripMenuItemSetRecord";
+            this.toolStripMenuItemSetRecord.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemSetRecord.Text = "Set record";
+            this.toolStripMenuItemSetRecord.Click += new System.EventHandler(this.toolStripMenuItemSetRecord_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripMenuItemResetSession
+            // 
+            this.toolStripMenuItemResetSession.Name = "toolStripMenuItemResetSession";
+            this.toolStripMenuItemResetSession.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemResetSession.Text = "Reset session";
+            this.toolStripMenuItemResetSession.Click += new System.EventHandler(this.toolStripMenuItemResetSession_Click);
+            // 
+            // toolStripMenuItemResetSeason
+            // 
+            this.toolStripMenuItemResetSeason.Name = "toolStripMenuItemResetSeason";
+            this.toolStripMenuItemResetSeason.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemResetSeason.Text = "Reset season";
+            this.toolStripMenuItemResetSeason.Click += new System.EventHandler(this.toolStripMenuItemResetSeason_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(867, 472);
+            this.ClientSize = new System.Drawing.Size(848, 472);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.labelSeason);
             this.Controls.Add(this.label10);
@@ -739,7 +770,6 @@
         private System.Windows.Forms.ToolStripMenuItem doesNotAffectRankToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonRank;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSetRank;
         private System.Windows.Forms.Label labelClock;
         private System.Windows.Forms.Timer timerCountdown;
         private System.Windows.Forms.ToolStripButton toolStripButtonAbout;
@@ -751,9 +781,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labelSeason;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ToolStripSplitButton toolStripButtonResetRank;
-        private System.Windows.Forms.ToolStripMenuItem resetSessionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resetSeasonToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -775,6 +802,14 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLabelDeltaSeason;
         private System.Windows.Forms.ToolStripMenuItem goBack2StepsToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonMatch;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOverlay;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripButtonSetRank;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetRecord;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemResetSession;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemResetSeason;
     }
 }
 
